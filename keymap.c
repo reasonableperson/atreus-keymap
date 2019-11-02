@@ -44,45 +44,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* +---+---+---+---+---+     */
 /* |+z+| x | c | v | b |     */            SHZ,   KC_X, KC_C, KC_V, KC_B,
 /* +---+---+---+---+---+---. */
-/* |Esc|Tab|Cmp|Ctl|Spc| L | */            ESC, KC_TAB,  CMP,  CTL,  SPC, L,
-/* `---+---+---+---+---+---' */             /*     ,-------------------. */
-   KC_J,   KC_L, KC_U,    KC_Y,    KC_BSPC, /*     | j | l | u | y | ⌫ | */
-                                            /*     +---+---+---+---+---+ */
-   KC_H,   KC_N, KC_E,    KC_I,    KC_O,    /*     | h | n | e | i | o | */
-                                            /*     +---+---+---+---+---+ */
-   KC_K,   KC_M, KC_COMM, KC_DOT,  SHS,     /*     | k | m | , | . |+/+| */
-                                            /* ,---+---+---+---+---+---+ */
-R, KC_SPC, SFT,  KC_MINS, KC_QUOT, RET),    /* | R |Spc|Shf| - | ' |Ent| */
-                                            /* `---+---+---+---+---+---' */
+/* |Esc|Tab|Cmp|Ctl|Spc| L | */            ESC, KC_TAB,  CMP,  CTL,  SPC,  L,
+/* `---+---+---+---+---+---' */
+                                              /*     ,-------------------. */
+     KC_J,   KC_L, KC_U,    KC_Y,    KC_BSPC, /*     | j | l | u | y | ⌫ | */
+                                              /*     +---+---+---+---+---+ */
+     KC_H,   KC_N, KC_E,    KC_I,    KC_O,    /*     | h | n | e | i | o | */
+                                              /*     +---+---+---+---+---+ */
+     KC_K,   KC_M, KC_COMM, KC_DOT,  SHS,     /*     | k | m | , | . |+/+| */
+                                              /* ,---+---+---+---+---+---+ */
+  R, KC_SPC, SFT,  KC_MINS, KC_QUOT, RET),    /* | R |Spc|Shf| - | ' |Ent| */
+                                              /* `---+---+---+---+---+---+ */
 
-/* ,-------------------.         ,-------------------.
- * | ` |Hom| ↑ |End|Win|         |Ins| 7 | 8 | 9 | - | These keys are meant to
- * |---+---+---+---+---+         +---+---+---+---+---| be accessed while holding
- * |Ctl| ← | ↓ | → |Vo↑|         |PgU| 4 | 5 | 6 | + | down the left spacebar
- * |---+---+---+---+---+ Hold    +---+---+---+---+---| with your thumb. This is
- * |Shf|Del|Uni| ` |Pst|         |PgD| 1 | 2 | 3 | \ | useful for keys that will
- * |---+---+---+---+---+---. ,---+---+---+---+---+---+ be pressed repeatedly,
- * |   |   |   |   | ◆ |   | |   |Shf| , | 0 | . | = | like numbers and arrows.
- * `-----------------------' `-----------------------' */
-[_HOLD] = LAYOUT(
-/*,--------------------------------------------------.*/
-  KC_GRV,  KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,  /*|*/
-                       /*,--------------------------------------------------.*/
-                       /*|*/ KC_INS,  KC_7,    KC_8,    KC_9,    KC_MINS, /*|*/
-                       /*|*/                                              /*|*/
-    CTL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLU,      /*|*/
-                       /*|*/                                              /*|*/
-                       /*|*/ KC_PGUP, KC_4,    KC_5,    KC_6,    KC_PLUS,
-                       /*|*/                                              /*|*/
-    SFT, KC_DEL,  ALT, KC_GRV,  LSFT(KC_INS), /*|*/
-                       /*|*/                                              /*|*/
-                       /*|*/ KC_PGDN, KC_1,    KC_2,    KC_3,   KC_BSLS,
-                       /*|*/                                              /*|*/
-  KC_LALT, _,       _,       _,       _, _, _,            /*|*/
-                       /*|*/                                              /*|*/
-                       /*|*/ SFT,   KC_COMM, KC_0, KC_DOT, KC_EQL       /*|*/
-                       /*`--------------------------------------------------.*/
-),
+/* ,-------------------.  */ [_HOLD] = LR_LAYOUT(
+/* | ` |Hom| ↑ |End|Win|  */   KC_GRV, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
+/* |---+---+---+---+---+  */
+/* |Ctl| ← | ↓ | → |Vo↑|  */      CTL, KC_LEFT, KC_DOWN, KC_RGHT,     KC_VOLU,
+/* |---+---+---+---+---+  */
+/* |Shf|Del|Uni| ` |Pst|  */      SFT,  KC_DEL, ALT,     KC_GRV, LSFT(KC_INS),
+/* |---+---+---+---+---+---. */
+/* |   |   |   |   | ◆ |   | */   ___,     ___, ___,     ___,    ___,     ___,
+/* `---+---+---+---+---+---' */
+                                              /*     ,-------------------. */
+     KC_INS,  KC_7, KC_8, KC_9,   KC_MINS,    /*     |Ins| 7 | 8 | 9 | - | */
+                                              /*     +---+---+---+---+---+ */
+     KC_PGUP, KC_4, KC_5, KC_6,   KC_PLUS,    /*     |PgU| 4 | 5 | 6 | + | */
+                                              /*     +---+---+---+---+---+ */
+     KC_PGDN, KC_1, KC_2, KC_3,   KC_BSLS,    /*     |PgD| 1 | 2 | 3 | \ | */
+                                              /* ,---+---+---+---+---+---+ */
+___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),    /* |   |Shf| , | 0 | . | = | */
+                                              /* `---+---+---+---+---+---+ */
+
 /* ,-------------------.         ,-------------------.
  * | q | ⬁ | ⇧ | ⬀ |Grp|         | j | l | u | y | ⌫ |
  * |---+---+---+---+---+         +---+---+---+---+---|

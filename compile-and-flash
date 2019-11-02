@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd ~/git/atreus-firmware
+
+compile () {
+  cp -r . ~/src/qmk_firmware/keyboards/atreus/keymaps/splintax
+  cd  ~/src/qmk_firmware
+  make atreus:splintax
+}
+
+flash () {
+  # systemctl stop ModemManager.service &&
+  avrdude -p atmega32u4 -c avr109 \
+    -U flash:w:/home/scott/src/qmk_firmware/atreus_splintax.hex \
+    -P /dev/ttyACM0
+}
+
+compile && flash
