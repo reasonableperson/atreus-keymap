@@ -1,10 +1,7 @@
 #include QMK_KEYBOARD_H
 
-#define _BASE  0
-#define _HOLD  1
-#define _LEFT  2
-#define _RIGHT 3
-
+// Macros to simplify the layout of this file; allows for keys on the left and
+// right hands to be defined separately rather than interleaved.
 #define ___ _______
 #define LR_LAYOUT( \
     k01, k02, k03, k04, k05,   k06, k07, k08, k09, k10,         \
@@ -16,15 +13,20 @@
   { k11, k12, k13, k14, k15, k21,   k32, k33, k34, k35, k36, }, \
   { k16, k17, k18, k19, k20, k37,   k38, k39, k40, k41, k42  }}
 
+// Layer names.
+#define _BASE  0
+#define _HOLD  1
+#define _LEFT  2
+#define _RIGHT 3
+
 // Sticky thumb keys.
-#define L   OSL(_LEFT)    //  left thumb inner
+ #define L   OSL(_LEFT)    //  left thumb inner
 #define R   OSL(_RIGHT)   // right thumb inner
 #define CTL OSM(MOD_LCTL) //  left thumb outer
 #define SFT OSM(MOD_LSFT) // right thumb outer
 
 // Multi-purpose (layer tap and mod tap) keys.
-#define SPC LT(_HOLD, KC_SPC)   //  left thumb
-// leave a plain old spacebar on the right thumb
+#define SPC LT(_HOLD, KC_SPC)     //  left thumb
 #define SHZ MT(MOD_LSFT, KC_Z)    //  left pinky
 #define ESC MT(MOD_LALT, KC_ESC)  //  left pinky
 #define SHS MT(MOD_LSFT, KC_SLSH) // right pinky
@@ -108,30 +110,16 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),    /* |   |Shf| , | 0 | . | = | */
  * `-----------------------' `-----------------------'*/
 
  [_RIGHT] = LAYOUT(
-  KC_F1, KC_F2,  KC_F3,  KC_F4,  KC_MUTE,
+  KC_F1, KC_F2,  KC_F3, KC_F4, KC_MUTE,
     KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, RESET,
 
-  KC_F5, KC_F6,  KC_F7,  KC_F8,  KC_PSCR,
-    KC_VOLD, S(KC_9),    S(KC_0),    S(KC_SCLN), S(KC_BSLS),
+  KC_F5, KC_F6,  KC_F7, KC_F8, KC_PSCR,
+    KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), S(KC_BSLS),
 
   KC_F9, KC_F10, KC_F11, KC_F12, KC_MPRV,
-    KC_MPLY, KC_LBRC,    KC_RBRC,    S(KC_EQL),  KC_BSLS,
+    KC_MPLY, KC_LBRC, KC_RBRC, S(KC_EQL), KC_BSLS,
 
   ___, ___, ___, ___, ___, ___,
     ___, ___, ___, ___, ___, ___)
 
-};
-
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-  // MACRODOWN only works in this function
-  switch(id) {
-    case 0:
-      if (record->event.pressed) {
-        register_code(KC_RSFT);
-      } else {
-        unregister_code(KC_RSFT);
-      }
-    break;
-  }
-  return MACRO_NONE;
 };
