@@ -5,7 +5,6 @@
 #define _LEFT  2
 #define _RIGHT 3
 
-#define _ _______
 #define ___ _______
 #define LR_LAYOUT( \
     k01, k02, k03, k04, k05,   k06, k07, k08, k09, k10,         \
@@ -79,11 +78,12 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),    /* |   |Shf| , | 0 | . | = | */
  * | q | ⬁ | ⇧ | ⬀ |Grp|         | j | l | u | y | ⌫ |
  * |---+---+---+---+---+         +---+---+---+---+---|
  * |Ctl| ⇦ | ⇩ | ⇨ | ⌫ |         | h | ⌫ | e | i | o |
- * |---+---+---+---+---+ Left    +---+---+---+---+---|
+ * |---+---+---+---+---+         +---+---+---+---+---|
  * |Shf| x | c | v |Lay|         | k | m | , | . | / |
  * |---+---+---+---+---+---. ,---+---+---+---+---+---+
  * |Esc|Tab| f |Ctl|TTY| ◆ | |Rof|TTY|Shf| - | ' |Nau|
  * `-----------------------' `-----------------------'*/
+
 [_LEFT] = LAYOUT(
   G(KC_Q), C(S(KC_TAB)), G(KC_UP), C(KC_TAB), G(KC_G),
     G(KC_J), G(KC_L), G(KC_U), G(KC_Y), KC_BSPC,
@@ -95,8 +95,8 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),    /* |   |Shf| , | 0 | . | = | */
     G(KC_K), G(KC_M), G(KC_COMM), G(KC_DOT), G(KC_SLSH),
 
   G(KC_ESC), G(KC_TAB), G(KC_F), ___, G(KC_SPC), ___, G(KC_ESC),
-    G(KC_SPC), ___, G(KC_MINUS), G(KC_QUOT), G(KC_ENT)
-),
+    G(KC_SPC), ___, G(KC_MINUS), G(KC_QUOT), G(KC_ENT)),
+
 /* ,-------------------.         ,-------------------.
  * |F1 |F2 |F3 |F4 |Mut|         | ⇡ | { | } | ; |Rst|
  * |---+---+---+---+---+         +---+---+---+---+---|
@@ -104,13 +104,21 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),    /* |   |Shf| , | 0 | . | = | */
  * |---+---+---+---+---+   Right +---+---+---+---+---|
  * |F9 |F10|F11|F12|Aud|         | ► | [ | ] | + | \ |
  * |---+---+---+---+---+---. ,---+---+---+---+---+---+
- * |   |   |   |   |   |   | | ◆ |   |Shf|   |   |   |
- * `-----------------------' `-----------------------'
- */ [_RIGHT] = LAYOUT(
-    KC_F1, KC_F2,  KC_F3,  KC_F4,  KC_MUTE,       KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN,    RESET,
-    KC_F5, KC_F6,  KC_F7,  KC_F8,  KC_PSCR,       KC_VOLD, S(KC_9),    S(KC_0),    S(KC_SCLN), S(KC_BSLS),
-    KC_F9, KC_F10, KC_F11, KC_F12, KC_MPRV,       KC_MPLY, KC_LBRC,    KC_RBRC,    S(KC_EQL),  KC_BSLS,
-    ___,   ___,    ___,    ___,    ___, ___, ___, ___,     ___,        ___,        ___,        ___)
+ * |   |   |   |   |   |   | |   |   |   |   |   |   |
+ * `-----------------------' `-----------------------'*/
+
+ [_RIGHT] = LAYOUT(
+  KC_F1, KC_F2,  KC_F3,  KC_F4,  KC_MUTE,
+    KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, RESET,
+
+  KC_F5, KC_F6,  KC_F7,  KC_F8,  KC_PSCR,
+    KC_VOLD, S(KC_9),    S(KC_0),    S(KC_SCLN), S(KC_BSLS),
+
+  KC_F9, KC_F10, KC_F11, KC_F12, KC_MPRV,
+    KC_MPLY, KC_LBRC,    KC_RBRC,    S(KC_EQL),  KC_BSLS,
+
+  ___, ___, ___, ___, ___, ___,
+    ___, ___, ___, ___, ___, ___)
 
 };
 
