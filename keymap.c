@@ -20,7 +20,7 @@
 #define _RIGHT 3
 
 // Sticky thumb keys.
- #define L   OSL(_LEFT)    //  left thumb inner
+#define L   OSL(_LEFT)    //  left thumb inner
 #define R   OSL(_RIGHT)   // right thumb inner
 #define CTL OSM(MOD_LCTL) //  left thumb outer
 #define SFT OSM(MOD_LSFT) // right thumb outer
@@ -37,6 +37,8 @@
 #define ALT LM(_RIGHT, MOD_LALT) // For entering Alt codes on Windows
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+/*                               Base layer                                  */
 
 /* ,---+---+---+---+---. */ [_BASE] = LR_LAYOUT(
 /* | q | w | f | p | g | */     KC_Q,  KC_W, KC_F, KC_P, KC_G,
@@ -57,6 +59,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  R,  KC_SPC, SFT,  KC_MINS, KC_QUOT, RET),      /* | R |Spc|Shf| - | ' |Ent| */
                                                 /* `---+---+---+---+---+---' */
 
+/*                    Layer accessed by left space key                       */
+
 /* ,-------------------.  */ [_HOLD] = LR_LAYOUT(
 /* | ` |Hom| ↑ |End|Win|  */   KC_GRV, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
 /* |---+---+---+---+---+  */
@@ -75,6 +79,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                 /* ,---+---+---+---+---+---+ */
 ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
                                                 /* `---+---+---+---+---+---' */
+
+/*                    Layer accessed by left thumb key                       */
 
 /* ,-------------------. */ [_LEFT] = LR_LAYOUT(
 /* | q | ⬁ | ⇧ | ⬀ |Spl| */     G(KC_Q), C(S(KC_TAB)), G(KC_UP), C(KC_TAB),
@@ -95,37 +101,24 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
  G(KC_ESC), G(KC_SPC), ___, G(KC_MINUS),        /* |Rof|TTY|Shf| - | ' |Nau| */ 
                         G(KC_QUOT), G(KC_ENT)), /* `-----------------------' */
 
-/* ,-------------------. */      
-/* |F1 |F2 |F3 |F4 |PSc| */      
+/*                    Layer accessed by right thumb key                      */
+
+/* ,-------------------. */ [_RIGHT] = LR_LAYOUT(
+/* |F1 |F2 |F3 |F4 |PSc| */      KC_F1, KC_F2,  KC_F3,  KC_F4,  KC_PSCR,
 /* |---+---+---+---+---+ */      
-/* |F5 |F6 |F7 |F8 |BSp| */      
+/* |F5 |F6 |F7 |F8 |BSp| */      KC_F5, KC_F6,  KC_F7,  KC_F8,  KC_BSPC,
 /* |---+---+---+---+---+ */      
-/* |F9 |F10|F11|F12|   | */      
+/* |F9 |F10|F11|F12|   | */      KC_F9, KC_F10, KC_F11, KC_F12, ___,
 /* |---+---+---+---+---+---. */  
-/* |   |   |   |   |   |   | */  
+/* |   |   |   |   |   |   | */  ___, ___, ___, ___, ___, ___,
 /* `-----------------------' */  
-
-    /* ,-------------------. */
-    /* | ⇡ | { | } | ; |Rst| */
-    /* +---+---+---+---+---| */
-    /* | ⇣ | ( | ) | : | | | */
-    /* +---+---+---+---+---| */
-    /* |Mut| [ | ] | + | \ | */
-/* ,---+---+---+---+---+---+ */
-/* |   |   |   |   |   |   | */
-/* `-----------------------' */
-
- [_RIGHT] = LAYOUT(
-  KC_F1, KC_F2,  KC_F3, KC_F4, KC_PSCR,
-    KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, RESET,
-
-  KC_F5, KC_F6,  KC_F7, KC_F8, KC_BSPC,
-    KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), S(KC_BSLS),
-
-  KC_F9, KC_F10, KC_F11, KC_F12, ___,
-    KC_MUTE, KC_LBRC, KC_RBRC, S(KC_EQL), KC_BSLS,
-
-  ___, ___, ___, ___, ___, ___,
-    ___, ___, ___, ___, ___, ___)
-
+                                                    /* ,-------------------. */
+ KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, RESET,   /* | ⇡ | { | } | ; |Rst| */
+                                                    /* +---+---+---+---+---| */
+ KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), S(KC_BSLS), /* | ⇣ | ( | ) | : | | | */
+                                                    /* +---+---+---+---+---| */
+ KC_MUTE, KC_LBRC, KC_RBRC, S(KC_EQL),  KC_BSLS,    /* |Mut| [ | ] | + | \ | */ 
+                                                /* ,---+---+---+---+---+---+ */
+ ___,    ___,    ___,    ___,    ___,    ___)   /* |   |   |   |   |   |   | */
+                                                /* `-----------------------' */
 };
