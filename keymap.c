@@ -47,15 +47,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* +---+---+---+---+---+---. */
 /* |Esc|Tab|Cmp|Ctl|Spc| L | */ ESC, KC_TAB,  CMP,  CTL,  SPC,  L,
 /* `---+---+---+---+---+---' */
-                                                  /* ,-------------------. */
-     KC_J,   KC_L, KC_U,    KC_Y,    KC_BSPC,     /* | j | l | u | y | ⌫ | */
-                                                  /* +---+---+---+---+---+ */
-     KC_H,   KC_N, KC_E,    KC_I,    KC_O,        /* | h | n | e | i | o | */
-                                                  /* +---+---+---+---+---+ */
-     KC_K,   KC_M, KC_COMM, KC_DOT,  SHS,         /* | k | m | , | . |+/+| */
-                                              /* ,---+---+---+---+---+---+ */
- R,  KC_SPC, SFT,  KC_MINS, KC_QUOT, RET),    /* | R |Spc|Shf| - | ' |Ent| */
-                                              /* `---+---+---+---+---+---+ */
+                                                    /* ,-------------------. */
+     KC_J,   KC_L, KC_U,    KC_Y,    KC_BSPC,       /* | j | l | u | y | ⌫ | */
+                                                    /* +---+---+---+---+---+ */
+     KC_H,   KC_N, KC_E,    KC_I,    KC_O,          /* | h | n | e | i | o | */
+                                                    /* +---+---+---+---+---+ */
+     KC_K,   KC_M, KC_COMM, KC_DOT,  SHS,           /* | k | m | , | . |+/+| */
+                                                /* ,---+---+---+---+---+---+ */
+ R,  KC_SPC, SFT,  KC_MINS, KC_QUOT, RET),      /* | R |Spc|Shf| - | ' |Ent| */
+                                                /* `---+---+---+---+---+---' */
 
 /* ,-------------------.  */ [_HOLD] = LR_LAYOUT(
 /* | ` |Hom| ↑ |End|Win|  */   KC_GRV, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
@@ -66,49 +66,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* |---+---+---+---+---+---. */
 /* |   |   |   |   | ◆ |   | */   ___,     ___, ___,     ___,    ___,     ___,
 /* `---+---+---+---+---+---' */
-                                                  /* ,-------------------. */
-     KC_INS,  KC_7, KC_8, KC_9,   KC_MINS,        /* |Ins| 7 | 8 | 9 | - | */
-                                                  /* +---+---+---+---+---+ */
-     KC_PGUP, KC_4, KC_5, KC_6,   KC_PLUS,        /* |PgU| 4 | 5 | 6 | + | */
-                                                  /* +---+---+---+---+---+ */
-     KC_PGDN, KC_1, KC_2, KC_3,   KC_BSLS,        /* |PgD| 1 | 2 | 3 | \ | */
-                                              /* ,---+---+---+---+---+---+ */
-___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),    /* |   |Shf| , | 0 | . | = | */
-                                              /* `---+---+---+---+---+---+ */
+                                                    /* ,-------------------. */
+     KC_INS,  KC_7, KC_8, KC_9,   KC_MINS,          /* |Ins| 7 | 8 | 9 | - | */
+                                                    /* +---+---+---+---+---+ */
+     KC_PGUP, KC_4, KC_5, KC_6,   KC_PLUS,          /* |PgU| 4 | 5 | 6 | + | */
+                                                    /* +---+---+---+---+---+ */
+     KC_PGDN, KC_1, KC_2, KC_3,   KC_BSLS,          /* |PgD| 1 | 2 | 3 | \ | */
+                                                /* ,---+---+---+---+---+---+ */
+___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
+                                                /* `---+---+---+---+---+---' */
 
-/* ,-------------------. */ 
-/* | q | ⬁ | ⇧ | ⬀ |Spl| */ 
-/* |---+---+---+---+---+ */ 
-/* |Ctl| ⇦ | ⇩ | ⇨ |Con| */ 
-/* |---+---+---+---+---+ */ 
-/* |Shf|Kil| c |Flt|Max| */ 
+/* ,-------------------. */ [_LEFT] = LR_LAYOUT(
+/* | q | ⬁ | ⇧ | ⬀ |Spl| */     G(KC_Q), C(S(KC_TAB)), G(KC_UP), C(KC_TAB),
+/* |---+---+---+---+---+ */                                           G(KC_G),
+/* |Ctl| ⇦ | ⇩ | ⇨ |Con| */     CTL, G(KC_LEFT), G(KC_DOWN), G(KC_RIGHT),
+/* |---+---+---+---+---+ */                                           G(KC_D),
+/* |Shf|Kil| c |Flt|Max| */     SFT, G(KC_X), G(KC_C), G(KC_V), G(KC_B),
 /* |---+---+---+---+---+---. */ 
-/* |Esc|Tab| f |Ctl|TTY| ◆ | */ 
-/* `-----------------------' */ 
-
-    /* ,-------------------. */
-    /* | j | l | u | y | ⌫ | */
-    /* +---+---+---+---+---| */
-    /* | h | ⌫ | e | i | o | */
-    /* +---+---+---+---+---| */
-    /* | k | m | , | . | / | */
-/* ,---+---+---+---+---+---+ */
-/* |Rof|TTY|Shf| - | ' |Nau| */
-/* `-----------------------' */
-
-
-[_LEFT] = LAYOUT(
-  G(KC_Q), C(S(KC_TAB)), G(KC_UP), C(KC_TAB), G(KC_G),
-    G(KC_J), G(KC_L), G(KC_U), G(KC_Y), KC_BSPC,
-
-  CTL, G(KC_LEFT), G(KC_DOWN), G(KC_RIGHT), G(KC_D),
-    G(KC_H), KC_BSPC, G(KC_E), G(KC_I), G(KC_O),
-
-  SFT, G(KC_X), G(KC_C), G(KC_V), G(KC_B),
-    G(KC_K), G(KC_M), G(KC_COMM), G(KC_DOT), G(KC_SLSH),
-
-  G(KC_ESC), G(KC_TAB), G(KC_F), ___, G(KC_SPC), ___, G(KC_ESC),
-    G(KC_SPC), ___, G(KC_MINUS), G(KC_QUOT), G(KC_ENT)),
+/* |Esc|Tab| f |Ctl|TTY| ◆ | */ G(KC_ESC), G(KC_TAB), G(KC_F), ___, G(KC_SPC),
+/* `-----------------------' */                                           ___, 
+                                                    /* ,-------------------. */
+ G(KC_J), G(KC_L), G(KC_U), G(KC_Y), KC_BSPC,       /* | j | l | u | y | ⌫ | */ 
+                                                    /* +---+---+---+---+---| */
+ G(KC_H), KC_BSPC, G(KC_E), G(KC_I), G(KC_O),       /* | h | ⌫ | e | i | o | */ 
+                                                    /* +---+---+---+---+---| */
+ G(KC_K), G(KC_M), G(KC_COMM), G(KC_DOT),           /* | k | m | , | . | / | */ 
+                                    G(KC_SLSH), /* ,---+---+---+---+---+---+ */
+ G(KC_ESC), G(KC_SPC), ___, G(KC_MINUS),        /* |Rof|TTY|Shf| - | ' |Nau| */ 
+                        G(KC_QUOT), G(KC_ENT)), /* `-----------------------' */
 
 /* ,-------------------. */      
 /* |F1 |F2 |F3 |F4 |PSc| */      
