@@ -1,0 +1,21 @@
+#!/bin/bash
+
+compile () {
+  pushd ~/git/atreus-keymap
+  cp * ~/src/qmk_firmware/keyboards/atreus/keymaps/splintax
+  pushd  ~/src/qmk_firmware
+  make atreus:splintax
+  popd; popd
+}
+
+flash () {
+  pushd ~/src/qmk_firmware
+  # systemctl stop ModemManager.service &&
+  avrdude -p atmega32u4 -c avr109 \
+    -U flash:w:atreus_splintax.hex \
+    -P /dev/ttyACM0
+  popd
+}
+
+compile
+if [[ $? && $1 = "--flash" ]]; then flash; fi
