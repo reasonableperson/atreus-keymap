@@ -92,14 +92,14 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
 /* |Esc|Tab| f |Ctl|TTY| ◆ | */ G(KC_ESC), G(KC_TAB), G(KC_F), ___, G(KC_SPC),
 /* `-----------------------' */                                           ___, 
                                                     /* ,-------------------. */
- G(KC_J), G(KC_L), G(KC_U), G(KC_Y), KC_BSPC,       /* | j | l | u | y | ⌫ | */ 
+            ___, KC_7, KC_8, KC_9, KC_BSPC,         /* |   | 7 | 8 | 9 | ⌫ | */ 
                                                     /* +---+---+---+---+---| */
- G(KC_H), KC_BSPC, G(KC_E), G(KC_I), G(KC_O),       /* | h | ⌫ | e | i | o | */ 
+            ___, KC_4, KC_5, KC_6, G(KC_O),         /* |   | 4 | 5 | 6 |Pas| */ 
                                                     /* +---+---+---+---+---| */
- G(KC_K), G(KC_M), G(KC_COMM), G(KC_DOT),           /* | k | m | , | . | / | */ 
-                                    G(KC_SLSH), /* ,---+---+---+---+---+---+ */
- G(KC_ESC), G(KC_SPC), ___, G(KC_MINUS),        /* |Rof|TTY|Shf| - | ' |Nau| */ 
-                        G(KC_QUOT), G(KC_ENT)), /* `-----------------------' */
+            ___, KC_1, KC_2, KC_3, G(KC_SLSH),      /* |   | 1 | 2 | 3 |Ffx| */ 
+                                                /* ,---+---+---+---+---+---+ */
+ G(KC_ESC), G(KC_SPC), SFT,  KC_0, KC_DOT,      /* |Rof|TTY|Shf| 0 | . |Nau| */ 
+                                   G(KC_ENT)),  /* `-----------------------' */
 
 /*                    Layer accessed by right thumb key                      */
 
@@ -108,17 +108,17 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
 /* |---+---+---+---+---+ */      
 /* |F5 |F6 |F7 |F8 |BSp| */      KC_F5, KC_F6,  KC_F7,  KC_F8,  KC_BSPC,
 /* |---+---+---+---+---+ */      
-/* |F9 |F10|F11|F12|   | */      KC_F9, KC_F10, KC_F11, KC_F12, ___,
+/* |F9 |F10|F11|F12|RST| */      KC_F9, KC_F10, KC_F11, KC_F12, RESET,
 /* |---+---+---+---+---+---. */  
 /* |   |   |   |   |   |   | */  ___, ___, ___, ___, ___, ___,
 /* `-----------------------' */  
                                                     /* ,-------------------. */
- KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, RESET,   /* | ⇡ | { | } | ; |Rst| */
+ KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, KC_BSPC, /* | ⇡ | { | } | ; | ⌫ | */
                                                     /* +---+---+---+---+---| */
  KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), S(KC_BSLS), /* | ⇣ | ( | ) | : | | | */
                                                     /* +---+---+---+---+---| */
  KC_MUTE, KC_LBRC, KC_RBRC, S(KC_EQL),  KC_BSLS,    /* |Mut| [ | ] | + | \ | */ 
                                                 /* ,---+---+---+---+---+---+ */
- ___,    ___,    ___,    ___,    ___,    ___)   /* |   |   |   |   |   |   | */
+ ___,     ___,   ___,  ___,  KC_GRV,    KC_EQL) /* |   |   |   |   | ` | = | */
                                                 /* `-----------------------' */
 };
