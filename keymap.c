@@ -62,22 +62,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*                    Layer accessed by left space key                       */
 
 /* ,-------------------.  */ [_HOLD] = LR_LAYOUT(
-/* | ` |Hom| ↑ |End|Win|  */   KC_GRV, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
+/* |   |Hom| ↑ |End|Win|  */      ___, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
 /* |---+---+---+---+---+  */
-/* |Ctl| ← | ↓ | → |Vo↑|  */      CTL, KC_LEFT, KC_DOWN, KC_RGHT,     KC_VOLU,
+/* |Ctl| ← | ↓ | → |   |  */      CTL, KC_LEFT, KC_DOWN, KC_RGHT,         ___,
 /* |---+---+---+---+---+  */
-/* |Shf|Del|Uni| ` |Pst|  */      SFT,  KC_DEL, ALT,     KC_GRV, LSFT(KC_INS),
+/* |Shf|Del|Uni|   |   |  */      SFT,  KC_DEL, ALT,     ___,    LSFT(KC_INS),
 /* |---+---+---+---+---+---. */
 /* |   |   |   |   | ◆ |   | */   ___,     ___, ___,     ___,    ___,     ___,
 /* `---+---+---+---+---+---' */
                                                     /* ,-------------------. */
-     KC_INS,  KC_7, KC_8, KC_9,   KC_MINS,          /* |Ins| 7 | 8 | 9 | - | */
+     KC_INS,  ___, ___, ___,          ___,          /* |Ins|   |   |   |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_PGUP, KC_4, KC_5, KC_6,   KC_PLUS,          /* |PgU| 4 | 5 | 6 | + | */
+     KC_PGUP, ___, ___, ___,          ___,          /* |PgU|   |   |   |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_PGDN, KC_1, KC_2, KC_3,   KC_BSLS,          /* |PgD| 1 | 2 | 3 | \ | */
+     KC_PGDN, ___, ___, ___,          ___,          /* |PgD|   |   |   |   | */
                                                 /* ,---+---+---+---+---+---+ */
-___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
+___, ___,  ___, ___, ___,            ___),      /* |   |   |   |   |   |   | */
                                                 /* `---+---+---+---+---+---' */
 
 /*                    Layer accessed by left thumb key                       */
@@ -96,7 +96,7 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
                                                     /* +---+---+---+---+---| */
             ___, KC_4, KC_5, KC_6, G(KC_O),         /* |   | 4 | 5 | 6 |Pas| */ 
                                                     /* +---+---+---+---+---| */
-            ___, KC_1, KC_2, KC_3, G(KC_SLSH),      /* |   | 1 | 2 | 3 |Ffx| */ 
+        KC_MSEL, KC_1, KC_2, KC_3, G(KC_SLSH),      /* |Aud| 1 | 2 | 3 |Ffx| */ 
                                                 /* ,---+---+---+---+---+---+ */
  G(KC_ESC), G(KC_SPC), SFT,  KC_0, KC_DOT,      /* |Rof|TTY|Shf| 0 | . |Nau| */ 
                                    G(KC_ENT)),  /* `-----------------------' */
@@ -119,6 +119,6 @@ ___, SFT,  KC_COMM, KC_0, KC_DOT, KC_EQL),      /* |   |Shf| , | 0 | . | = | */
                                                     /* +---+---+---+---+---| */
  KC_MUTE, KC_LBRC, KC_RBRC, S(KC_EQL),  KC_BSLS,    /* |Mut| [ | ] | + | \ | */ 
                                                 /* ,---+---+---+---+---+---+ */
- ___,     ___,   ___,  ___,  KC_GRV,    KC_EQL) /* |   |   |   |   | ` | = | */
+ ___,  ___,  ___,  S(KC_GRV),  KC_GRV,  KC_EQL) /* |   |   |   | ~ | ` | = | */
                                                 /* `-----------------------' */
 };
