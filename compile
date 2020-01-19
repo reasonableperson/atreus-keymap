@@ -1,16 +1,21 @@
 #!/bin/bash
 
 compile () {
+  # copy all files in the current directory to the keymaps directory inside the
+  # copy of qmk_firmware in the current directory
   pushd ~/git/atreus-keymap
-  cp * ./qmk_firmware/keyboards/atreus/keymaps/splintax
+  cp *.* ./qmk_firmware/keyboards/atreus/keymaps/splintax
+  # change into the qmk_firmware directory, update it and build it
   pushd qmk_firmware
+  git pull
   make atreus:splintax
   popd; popd
 }
 
 flash () {
   pushd ~/git/atreus-keymap/qmk_firmware
-  # systemctl stop ModemManager.service &&
+  # uncomment the following lines if you have problems with /dev/ttyACM0:
+  # systemctl stop ModemManager.service
   avrdude -p atmega32u4 -c avr109 \
     -U flash:w:atreus_splintax.hex \
     -P /dev/ttyACM0
