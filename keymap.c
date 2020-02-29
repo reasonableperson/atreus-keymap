@@ -19,7 +19,7 @@
 #define _RIGHT 3
 
 // Sticky thumb keys.
-#define L   OSL(_LEFT)    //  left thumb inner
+#define L   LT(_LEFT, KC_LGUI)    //  left thumb inner
 #define R   OSL(_RIGHT)   // right thumb inner
 #define CTL OSM(MOD_LCTL) //  left thumb outer
 #define SFT OSM(MOD_LSFT) // right thumb outer
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* +---+---+---+---+---+ */    
 /* |+z+| x | c | v | b | */     SHZ,   KC_X, KC_C, KC_V, KC_B,
 /* +---+---+---+---+---+---. */
-/* |Esc|Tab|Cmp|Ctl|Spc| L | */ ESC, KC_TAB,  CMP,  CTL,  SPC,  L,
+/* |Esc|Tab|Cmp|Ctl|Spc| L | */ ESC, KC_TAB,  CMP, KC_LCTL, SPC,  L,
 /* `---+---+---+---+---+---' */
                                                     /* ,-------------------. */
      KC_J,   KC_L, KC_U,    KC_Y,    KC_BSPC,       /* | j | l | u | y | ⌫ | */
@@ -63,20 +63,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* ,-------------------.  */ [_HOLD] = LR_LAYOUT(
 /* |   |Hom| ↑ |End|Win|  */      ___, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
 /* |---+---+---+---+---+  */
-/* |Ctl| ← | ↓ | → |   |  */      CTL, KC_LEFT, KC_DOWN, KC_RGHT,         ___,
+/* |Ctl| ← | ↓ | → |PgU|  */      CTL, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP,
 /* |---+---+---+---+---+  */
-/* |Shf|Del|Uni|   |   |  */      SFT,  KC_DEL, ALT,     ___,    LSFT(KC_INS),
+/* |Shf|Del|Uni|   |PgD|  */      SFT,  KC_DEL, ALT,     ___,     KC_PGDN,
 /* |---+---+---+---+---+---. */
-/* |   |   |   |   | ◆ |   | */   ___,     ___, ___,     ___,    ___,     ___,
+/* |   |   |   |   | ◆ |   | */   ___,     ___, ___,     ___,     ___,     ___,
 /* `---+---+---+---+---+---' */
                                                     /* ,-------------------. */
-     KC_INS,  ___, ___, ___,          ___,          /* |Ins|   |   |   |   | */
+     KC_INS,  ___,  ___,  ___,   ___,               /* |Ins|   |   |   |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_PGUP, ___, ___, ___,          ___,          /* |PgU|   |   |   |   | */
+     KC_H,    KC_J, KC_K, KC_L,  ___,               /* | h | j | k | l |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_PGDN, ___, ___, ___,          ___,          /* |PgD|   |   |   |   | */
+     KC_PGDN, ___, ___, ___,     ___,               /* |PgD|   |   |   |   | */
                                                 /* ,---+---+---+---+---+---+ */
-___, ___,  ___, ___, ___,            ___),      /* |   |   |   |   |   |   | */
+KC_LSFT, ___,  ___, ___, ___,        ___),          /* |   |   |   |   |   |   | */
                                                 /* `---+---+---+---+---+---' */
 
 /*                    Layer accessed by left thumb key                       */
