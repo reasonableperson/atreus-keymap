@@ -19,7 +19,7 @@
 #define _RIGHT 3
 
 // Sticky thumb keys.
-#define L   LT(_LEFT, KC_LGUI)    //  left thumb inner
+#define L   OSL(_LEFT)    //  left thumb inner
 #define R   OSL(_RIGHT)   // right thumb inner
 #define CTL OSM(MOD_LCTL) //  left thumb outer
 #define SFT OSM(MOD_LSFT) // right thumb outer
@@ -70,13 +70,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* |   |   |   |   | ◆ |   | */   ___,     ___, ___,     ___,     ___,     ___,
 /* `---+---+---+---+---+---' */
                                                     /* ,-------------------. */
-     KC_INS,  ___,  ___,  ___,   ___,               /* |Ins|   |   |   |   | */
+     KC_INS,  ___,  ___,  ___,  ___,                /* |Ins|   |   |   |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_H,    KC_J, KC_K, KC_L,  ___,               /* | h | j | k | l |   | */
+     KC_H,    KC_J, KC_K, KC_L, ___,                /* | h | j | k | l |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_PGDN, ___, ___, ___,     ___,               /* |PgD|   |   |   |   | */
+     KC_PGDN, ___, ___, ___,    ___,                /* |PgD|   |   |   |   | */
                                                 /* ,---+---+---+---+---+---+ */
-KC_LSFT, ___,  ___, ___, ___,        ___),          /* |   |   |   |   |   |   | */
+  ___, KC_SPC, ___, ___, ___,    ___),          /* |   |Spc|   |   |   |   | */
                                                 /* `---+---+---+---+---+---' */
 
 /*                    Layer accessed by left thumb key                       */
@@ -84,9 +84,9 @@ KC_LSFT, ___,  ___, ___, ___,        ___),          /* |   |   |   |   |   |   |
 /* ,-------------------. */ [_LEFT] = LR_LAYOUT(
 /* | q | ⬁ | ⇧ | ⬀ |Spl| */     G(KC_Q), C(S(KC_TAB)), G(KC_UP), C(KC_TAB),
 /* |---+---+---+---+---+ */                                           G(KC_G),
-/* |Ctl| ⇦ | ⇩ | ⇨ |Con| */     CTL, G(KC_LEFT), G(KC_DOWN), G(KC_RIGHT),
+/* |Sft| ⇦ | ⇩ | ⇨ |Con| */     SFT, G(KC_LEFT), G(KC_DOWN), G(KC_RIGHT),
 /* |---+---+---+---+---+ */                                           G(KC_D),
-/* |Shf|Kil| c |Flt|Max| */     SFT, G(KC_X), G(KC_C), G(KC_V), G(KC_B),
+/* |Ctl|Kil| c |Flt|Max| */     CTL, G(KC_X), G(KC_C), G(KC_V), G(KC_B),
 /* |---+---+---+---+---+---. */ 
 /* |Esc|Tab| f |Ctl|TTY| ◆ | */ G(KC_ESC), G(KC_TAB), G(KC_F), ___, G(KC_SPC),
 /* `-----------------------' */                                           ___, 
@@ -114,7 +114,7 @@ KC_LSFT, ___,  ___, ___, ___,        ___),          /* |   |   |   |   |   |   |
                                                     /* ,-------------------. */
  KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, KC_BSPC, /* | ⇡ | { | } | ; | ⌫ | */
                                                     /* +---+---+---+---+---| */
- KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), S(KC_BSLS), /* | ⇣ | ( | ) | : | | | */
+ KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), SFT,        /* | ⇣ | ( | ) | : |Sft| */
                                                     /* +---+---+---+---+---| */
  KC_MUTE, KC_LBRC, KC_RBRC, S(KC_EQL),  KC_BSLS,    /* |Mut| [ | ] | + | \ | */ 
                                                 /* ,---+---+---+---+---+---+ */
