@@ -28,5 +28,9 @@ flash () {
   popd
 }
 
-#compile
-#if [[ $? && $1 = "--flash" ]]; then flash; fi
+if [[ $? && $1 = "--flash" ]]; then
+  sleep 2
+  flash
+else
+  compile
+fi
