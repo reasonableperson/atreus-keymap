@@ -17,6 +17,7 @@
 #define _HOLD  1
 #define _LEFT  2
 #define _RIGHT 3
+#define ____ KC_TRNS
 
 // Sticky thumb keys.
 #define L   OSL(_LEFT)    //  left thumb inner
@@ -61,22 +62,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*                    Layer accessed by left space key                       */
 
 /* ,-------------------.  */ [_HOLD] = LR_LAYOUT(
-/* |   |Hom| ↑ |End|Win|  */      ___, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
+/* |   |Hom| ↑ |End|Win|  */      ____, KC_HOME, KC_UP,   KC_END,  KC_WWW_HOME,
 /* |---+---+---+---+---+  */
 /* |Ctl| ← | ↓ | → |PgU|  */      CTL, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGUP,
 /* |---+---+---+---+---+  */
-/* |Shf|Del|Uni|   |PgD|  */      SFT,  KC_DEL, ALT,     ___,     KC_PGDN,
+/* |Shf|Del|Uni|   |PgD|  */      SFT,  KC_DEL, ALT,     ____,     KC_PGDN,
 /* |---+---+---+---+---+---. */
-/* |   |   |   |   | ◆ |   | */   ___,     ___, ___,     ___,     ___,     ___,
+/* |   |   |   |   | ◆ |   | */   ____,     ____, ____,     ____,     KC_TRNS, ____,
 /* `---+---+---+---+---+---' */
                                                     /* ,-------------------. */
-     KC_INS,  ___,  ___,  ___,  ___,                /* |Ins|   |   |   |   | */
+     KC_INS,  KC_7, KC_8, KC_9, ____,               /* |Ins| 7 | 8 | 9 |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_H,    KC_J, KC_K, KC_L, ___,                /* | h | j | k | l |   | */
+     ____,     KC_4, KC_5, KC_6, ____,              /* | h | 4 | 5 | 6 |   | */
                                                     /* +---+---+---+---+---+ */
-     KC_PGDN, ___, ___, ___,    ___,                /* |PgD|   |   |   |   | */
+     KC_PGDN, KC_1, KC_2, KC_3, ____,               /* |PgD| 1 | 2 | 3 |   | */
                                                 /* ,---+---+---+---+---+---+ */
-  ___, KC_SPC, ___, ___, ___,    ___),          /* |   |Spc|   |   |   |   | */
+  ____, KC_SPC, ____, KC_0, KC_DOT, ____),      /* |   |Spc|   | 0 | . |   | */
                                                 /* `---+---+---+---+---+---' */
 
 /*                    Layer accessed by left thumb key                       */
@@ -88,17 +89,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* |---+---+---+---+---+ */                                           G(KC_D),
 /* |Ctl|Kil| c |Flt|Max| */     CTL, G(KC_X), G(KC_C), G(KC_V), G(KC_B),
 /* |---+---+---+---+---+---. */ 
-/* |Esc|Tab| f |Ctl|TTY| ◆ | */ G(KC_ESC), G(KC_TAB), G(KC_F), ___, G(KC_SPC),
-/* `-----------------------' */                                           ___, 
+/* |Esc|Tab| f |Ctl|TTY| ◆ | */ G(KC_ESC), G(KC_TAB), G(KC_F), ____, G(KC_SPC),
+/* `-----------------------' */                                           KC_TRNS, 
                                                     /* ,-------------------. */
-            ___, KC_7, KC_8, KC_9, KC_BSPC,         /* |   | 7 | 8 | 9 | ⌫ | */ 
+ G(KC_J), G(KC_L), G(KC_U), G(KC_Y), KC_BSPC,       /* |DPI| l | u | y | ⌫ | */ 
                                                     /* +---+---+---+---+---| */
-            ___, KC_4, KC_5, KC_6, G(KC_O),         /* |   | 4 | 5 | 6 |Pas| */ 
+ G(KC_H), G(KC_N), G(KC_N), G(KC_E), G(KC_O),       /* | h | n | e | i |Pas| */ 
                                                     /* +---+---+---+---+---| */
-        KC_MSEL, KC_1, KC_2, KC_3, G(KC_SLSH),      /* |Aud| 1 | 2 | 3 |Ffx| */ 
+ G(KC_Z), G(KC_M), G(KC_COMM), G(KC_DOT),G(KC_SLSH),/* |Aud| m | , | . |Ffx| */ 
                                                 /* ,---+---+---+---+---+---+ */
- G(KC_ESC), G(KC_SPC), SFT,  KC_0, KC_DOT,      /* |Rof|TTY|Shf| 0 | . |Nau| */ 
-                                   G(KC_ENT)),  /* `-----------------------' */
+ G(KC_ESC), G(KC_SPC), ____, ____, ____,        /* |Rof|TTY|   |   |   |Nau| */ 
+                                    G(KC_ENT)), /* `-----------------------' */
 
 /*                    Layer accessed by right thumb key                      */
 
@@ -109,15 +110,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* |---+---+---+---+---+ */      
 /* |F9 |F10|F11|F12|RST| */      KC_F9, KC_F10, KC_F11, KC_F12, RESET,
 /* |---+---+---+---+---+---. */  
-/* |   |   |   |   |   |   | */  ___, ___, ___, ___, ___, ___,
+/* |   |   |   |   |   |   | */  ____, ____, ____, ____, ____, ____,
 /* `-----------------------' */  
                                                     /* ,-------------------. */
  KC_VOLU, S(KC_LBRC), S(KC_RBRC), KC_SCLN, KC_BSPC, /* | ⇡ | { | } | ; | ⌫ | */
                                                     /* +---+---+---+---+---| */
- KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), SFT,        /* | ⇣ | ( | ) | : |Sft| */
+ KC_VOLD, S(KC_9), S(KC_0), S(KC_SCLN), KC_CAPS,    /* | ⇣ | ( | ) | : |CLk| */
                                                     /* +---+---+---+---+---| */
  KC_MUTE, KC_LBRC, KC_RBRC, S(KC_EQL),  KC_BSLS,    /* |Mut| [ | ] | + | \ | */ 
                                                 /* ,---+---+---+---+---+---+ */
- ___,  ___,  ___,  S(KC_GRV),  KC_GRV,  KC_EQL) /* |   |   |   | ~ | ` | = | */
+ KC_TRNS, ____, ____, S(KC_GRV), KC_GRV, KC_EQL)/* | ◆ |   |   | ~ | ` | = | */
                                                 /* `-----------------------' */
 };
