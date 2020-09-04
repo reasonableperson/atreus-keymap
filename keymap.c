@@ -20,7 +20,7 @@
 #define ____ KC_TRNS
 
 // Sticky thumb keys.
-#define L   OSL(_LEFT)    //  left thumb inner
+#define L   LT(_LEFT, KC_LGUI)    //  left thumb inner
 #define R   OSL(_RIGHT)   // right thumb inner
 #define CTL OSM(MOD_LCTL) //  left thumb outer
 #define SFT OSM(MOD_LSFT) // right thumb outer
@@ -92,9 +92,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* |Esc|Tab| f |Ctl|TTY| ◆ | */ G(KC_ESC), G(KC_TAB), G(KC_F), ____, G(KC_SPC),
 /* `-----------------------' */                                           KC_TRNS, 
                                                     /* ,-------------------. */
- G(KC_J), G(KC_L), G(KC_U), G(KC_Y), KC_BSPC,       /* |DPI| l | u | y | ⌫ | */ 
+ G(KC_J), G(KC_L), G(KC_U), G(KC_Y), G(KC_BSPC),    /* |DPI| l | u | y | ⌫ | */ 
                                                     /* +---+---+---+---+---| */
- G(KC_H), G(KC_N), G(KC_N), G(KC_E), G(KC_O),       /* | h | n | e | i |Pas| */ 
+ G(KC_H), G(KC_N), G(KC_E), G(KC_I), G(KC_O),       /* | h | n | e | i |Pas| */ 
                                                     /* +---+---+---+---+---| */
  G(KC_Z), G(KC_M), G(KC_COMM), G(KC_DOT),G(KC_SLSH),/* |Aud| m | , | . |Ffx| */ 
                                                 /* ,---+---+---+---+---+---+ */
